@@ -12,6 +12,9 @@ module.exports = {
           light: "#232F3E",
           DEFAULT: "#131921",
         },
+        free: {
+          DEFAULT: "#067D62"
+        }
       },
     },
   },
