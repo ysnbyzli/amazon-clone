@@ -8,8 +8,9 @@ import {
 
 import { signIn, signOut, useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectItems } from '../slices/basketSlice'
+import { search } from '../slices/productSlice'
 const Header = () => {
 
     const [count, setCount] = useState(0);
@@ -18,6 +19,8 @@ const Header = () => {
     const router = useRouter();
 
     const basketItems = useSelector(selectItems)
+    const searchItems = useSelector(state => state.products.searchItems)
+    const dispatch = useDispatch();
 
     useEffect(() => {
         setCount(
@@ -25,6 +28,14 @@ const Header = () => {
         )
     }, [basketItems])
 
+    const handleChangeSearch = (e) => {
+        const value = e.target.value;
+        if (!(value == "") || !(value == null)) {
+            if (value.length > 2) {
+                dispatch(search(value))
+            }
+        }
+    }
     return (
         <header>
             {/* TOP NAV */}
@@ -40,9 +51,23 @@ const Header = () => {
                     />
                 </div>
                 {/* SEARCH */}
-                <div className="hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-yellow-400 hover:bg-yellow-500 focus-within:border-yellow-500 focus-within:border-2">
-                    <input type="text" className="flex-grow flex-shrink rounded-l-md h-full p-2 px-4 focus:outline-none" />
+                <div className={`hidden sm:flex items-center h-10 flex-grow rounded-t-md rounded-b-md cursor-pointer bg-yellow-400 hover:bg-yellow-500 focus-within:border-yellow-500 ${searchItems ? null : "focus-within:border-2"} relative z-50`}>
+                    <input
+                        type="text"
+                        className={`flex-grow flex-shrink ${searchItems.length > 0 ? "rounded-tl-md" : "rounded-l-md"} h-full p-2 px-4 focus:outline-none`}
+                        onChange={handleChangeSearch}
+                    />
                     <SearchIcon className="h-12 p-4" />
+                    {searchItems.length > 0 && (<div>
+                        <ul className="bg-white absolute top-9 left-0 w-full z-40 rounded-b-md p-2 px-4">
+                            {searchItems.map(item => (
+                                <li>
+                                    {item.title}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>)}
+
                 </div>
                 {/* RIGHT */}
                 <div className="text-white text-xs flex items-center space-x-6 mx-6 whitespace-nowrap">
@@ -76,6 +101,7 @@ const Header = () => {
                 <p className="link hidden lg:inline-flex">Shopper Toolkit</p>
                 <p className="link hidden lg:inline-flex">Helath & Personal Care</p>
             </div>
+
         </header>
     )
 }

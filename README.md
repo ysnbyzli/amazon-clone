@@ -1,28 +1,84 @@
-# Installation Steps
+
+
+# Amazon Clone
+
+Bu projede nextjs ve redux-toolkit öğrenme sürecimi 
+hızlandırmak için gerçekleştirmiş olduğum bir e-commerce 
+projesidir.
 
 
 
-## Using npm
+## Demo
 
-Run commands
+[canlı](https://amazon-clone-eight-flax.vercel.app/) bu linkten çalışmanın 
+son haline bakabilirsiniz.
 
-1) ```npm install```
+## API Kullanımı
+
+Api olarak hazır olan [fakestore.api](https://fakestoreapi.com/)'u kullandım. Detaylara 
+ilgili linkten ulaşabilirsiniz genel olarak apinin çalışma mantığı aşağıdaki gibidir.
+
+#### Tüm ürünleri getir
+
+```http
+  GET /products
+```
+
+#### Ürünü getir
+
+```http
+  GET /products/${id}
+```
+
+| Parametre | Tip     | Açıklama                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Gerekli**. Çağrılacak öğenin anahtar değeri |
 
 
-2) ```npm run dev```
+
+  
+## Kullanılan Teknolojiler
 
 
-## Or using yarn
+[![Next Badge](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/) 
+[![Redux Badge](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)](https://redux-toolkit.js.org/)
+[![Typescript Badge](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) 
 
-Run commands 
+## Ortam Değişkenleri
 
-1) ```npm install --global yarn```
+Bu projeyi çalıştırmak için aşağıdaki ortam değişkenlerini .env dosyanıza eklemeniz gerekecek
 
-2) ```yarn install```
+`GOOGLE_ID`
 
-3) ```yarn run dev```
+`GOOGLE_SECRET`
+
+`NEXTAUTH_URL`
+## Bilgisayarınızda Çalıştırın
 
 
-### If you see the window below then you are set to build AMAZON 2.0!
 
-![Template Screenshot](TemplateScreenshot.jpg?raw=true "Template Screenshot")
+Projeyi klonlayın
+
+```bash
+  git clone https://github.com/ysnbyzli/amazon-clone.git
+```
+
+Proje dizinine gidin
+
+```bash
+  cd my-project
+```
+
+Gerekli paketleri yükleyin
+
+```bash
+  npm install
+```
+
+Sunucuyu çalıştırın
+
+```bash
+  npm run start
+```
+
+  

@@ -9,12 +9,21 @@ export const fetchProductList = createAsyncThunk("product/fetchAll", async () =>
 
 const initialState = {
     items: [],
+    searchItems: [],
 };
 
 export const productSlice = createSlice({
     name: "products",
     initialState,
-    reducers: {},
+    reducers: {
+        search: (state, action) => {
+            if (action.payload.length > 2) {
+                state.searchItems = state.items.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase()))
+            } else {
+                state.searchItems = []
+            }
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchProductList.fulfilled, (state, action) => {
@@ -22,6 +31,8 @@ export const productSlice = createSlice({
             })
     }
 })
+
+export const { search } = productSlice.actions;
 
 export const selectProducts = (state) => state.products.items;
 
