@@ -10,6 +10,7 @@ projesidir.
 
 ## Demo
 
+<<<<<<< HEAD
 [canlı](https://amazon-clone-eight-flax.vercel.app/) bu linkten çalışmanın 
 son haline bakabilirsiniz.
 
@@ -40,9 +41,6 @@ ilgili linkten ulaşabilirsiniz genel olarak apinin çalışma mantığı aşağ
 | Parametre | Tip     | Açıklama                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Gerekli**. Çağrılacak öğenin anahtar değeri |
-
-
-
   
 ## Kullanılan Teknolojiler
 
