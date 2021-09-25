@@ -31,9 +31,7 @@ const Header = () => {
     const handleChangeSearch = (e) => {
         const value = e.target.value;
         if (!(value == "") || !(value == null)) {
-            if (value.length > 2) {
-                dispatch(search(value))
-            }
+            dispatch(search(value))
         }
     }
     return (

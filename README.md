@@ -13,6 +13,13 @@ projesidir.
 [canlı](https://amazon-clone-eight-flax.vercel.app/) bu linkten çalışmanın 
 son haline bakabilirsiniz.
 
+## Özellikler
+- Ürün arama 
+- Sepete ürün ekleme 
+- Sepetten ürün silme
+- Sepetteki ürün adetini değiştirme
+- Ürün detay
+
 ## API Kullanımı
 
 Api olarak hazır olan [fakestore.api](https://fakestoreapi.com/)'u kullandım. Detaylara 

@@ -1,16 +1,20 @@
+import Link from 'next/link'
 import ReactStars from "react-rating-stars-component";
 import Image from 'next/image'
 import { useState } from 'react'
 import Currency from 'react-currency-formatter';
 import { useDispatch } from "react-redux";
+
 import { addToBasket } from "../slices/basketSlice";
 
 
-const Product = ({ id, title, price, description, category, image, rating: { rate } }) => {
+
+const Product = ({ id, bigImage, title, price, description, category, image, rating: { rate } }) => {
 
     const [hasPrime] = useState(Math.random() < 0.5)
 
     const dispatch = useDispatch();
+
 
     const handleClickAddToBasket = (id) => {
         const product = {
@@ -31,10 +35,16 @@ const Product = ({ id, title, price, description, category, image, rating: { rat
 
             <p className="absolute top-2 right-2 text-xs italic text-gray-400">{category}</p>
 
-            <Image src={image} height={200} width={200} objectFit="contain" />
-
-            <h4 className="my-3">{title}</h4>
-
+            <Link href={`/products/${id}`}>
+                <a>
+                    <Image src={image} height={200} width={bigImage ? 700 : 400} objectFit="contain" />
+                </a>
+            </Link>
+            <Link href={`/products/${id}`}>
+                <a>
+                    <h4 className="my-3">{title}</h4>
+                </a>
+            </Link>
             <ReactStars
                 count={5}
                 size={24}

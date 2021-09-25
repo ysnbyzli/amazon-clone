@@ -14,7 +14,7 @@ const checkout = () => {
     const [total, setTotal] = useState(0);
     const basketItems = useSelector(selectItems);
 
-
+    console.log(basketItems)
 
     useEffect(() => {
         setCount(
@@ -32,7 +32,7 @@ const checkout = () => {
                 <link rel="shortcut icon" href="https://iconarchive.com/download/i94399/bokehlicia/captiva/web-amazon.ico" />
             </Head>
             <Header />
-            <main className="2xl:flex max-w-screen-2xl mx-auto">
+            <main className="lg:flex max-w-screen-2xl mx-auto">
                 {/* LEFT SIDE */}
                 <div className="shadow-sm m-5 lg:flex-grow" >
                     <Image
@@ -48,6 +48,7 @@ const checkout = () => {
 
                         {basketItems.map((_, i) => (
                             <CheckoutProduct
+                                key={_.product.id}
                                 product={_.product}
                                 count={_.count}
                             />
@@ -73,7 +74,7 @@ const checkout = () => {
                 </div>
                 {/* RIGHT SIDE */}
                 {basketItems.length > 0 && (
-                    <div className="bg-white m-5 flex flex-col 2xl:min-w-[300px] max-h-44 space-y-4 p-3 pb-5">
+                    <div className="bg-white m-5 flex flex-col lg:min-w-[300px] max-h-44 space-y-4 p-3 pb-5">
                         {total > 100 && (
                             <p className="text-xs">
                                 <span className="text-free">Your order is covered by <b>FREE Shipping. </b></span>

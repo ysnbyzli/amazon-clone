@@ -41,6 +41,7 @@ const ProductFeed = () => {
                         category={category}
                         image={image}
                         rating={rating}
+                        bigImage
                     />
                 ))}
             </div>

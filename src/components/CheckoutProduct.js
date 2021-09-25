@@ -8,7 +8,7 @@ const { Option } = Select;
 
 import { changeCountToProduct, removeFromBasket } from '../slices/basketSlice';
 
-const CheckoutProduct = ({ product: { id, title, price, rate, description, image, hasPrime }, count }) => {
+const CheckoutProduct = ({ product: { id, title, price, rating: { rate }, description, image, hasPrime }, count }) => {
 
     const dispatch = useDispatch();
 
