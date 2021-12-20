@@ -9,8 +9,6 @@ projesidir.
 
 
 ## Demo
-
-<<<<<<< HEAD
 [canlı](https://amazon-clone-eight-flax.vercel.app/) bu linkten çalışmanın 
 son haline bakabilirsiniz.
 
